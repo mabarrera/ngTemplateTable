@@ -5,25 +5,14 @@
 
     <!-- <ng-container *ngTemplateOutlet="bodyTemplate"></ng-container> -->
 
-    <thead *ngIf=" head != undefined; else header ">
+    <thead>
         <tr>
             <th *ngFor="let heading of head">
                 {{heading}}
             </th>
         </tr> 
     </thead>
-
-    <ng-template #header>
-        <thead>
-            <ng-container *ngTemplateOutlet="headTemplate"></ng-container>
-            <!-- <ng-container *ngFor="let row of head; index as i">
-                <ng-container  *ngTemplateOutlet="headTemplate"></ng-container >
-            </ng-container>             -->
-        </thead>
-    </ng-template>
     
-    
-
     <tbody>
         <ng-container *ngFor="let row of value; index as i">
             <ng-container  *ngTemplateOutlet="bodyTemplate; context:{ item:row }"></ng-container >
