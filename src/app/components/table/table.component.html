@@ -1,0 +1,37 @@
+
+<h5>Table</h5>
+<!-- <table class="table scroll">
+    <thead>
+        <ng-content *ngTemplateOutlet="headerTable"></ng-content>
+    </thead>
+
+    <tbody>
+         <ng-content *ngTemplateOutlet="bodyTable"></ng-content>
+    </tbody>
+
+</table> -->
+
+<table class="table">
+
+
+
+
+    <thead>
+        <tr>
+            <th *ngFor="let heading of headings">
+                {{heading}}
+            </th>
+        </tr> 
+    </thead>
+
+    <tbody>
+        
+
+        <ng-container  *ngFor="let row of data">
+            <ng-container *ngFor="let col of colsTemplate">
+                <ng-template [ngTemplateOutlet]="col" [ngTemplateOutletContext]="{item:row}"></ng-template>
+            </ng-container>            
+        </ng-container>
+    </tbody>
+    
+</table>

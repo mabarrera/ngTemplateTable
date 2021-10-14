@@ -1,0 +1,42 @@
+<h5>
+    
+</h5>
+<table class="table">
+
+    <!-- <ng-container *ngTemplateOutlet="bodyTemplate"></ng-container> -->
+
+    <thead *ngIf=" head != undefined; else header ">
+        <tr>
+            <th *ngFor="let heading of head">
+                {{heading}}
+            </th>
+        </tr> 
+    </thead>
+
+    <ng-template #header>
+        <thead>
+            <ng-container *ngTemplateOutlet="headTemplate"></ng-container>
+            <!-- <ng-container *ngFor="let row of head; index as i">
+                <ng-container  *ngTemplateOutlet="headTemplate"></ng-container >
+            </ng-container>             -->
+        </thead>
+    </ng-template>
+    
+    
+
+    <tbody>
+        <ng-container *ngFor="let row of value; index as i">
+            <ng-container  *ngTemplateOutlet="bodyTemplate; context:{ item:row }"></ng-container >
+
+            <!-- <ng-container *ngFor="let column of templateList">
+                <ng-container  *ngTemplateOutlet="column.template; context:{ item:row }"></ng-container >
+            </ng-container> -->
+            
+           
+           
+        </ng-container>
+        
+    </tbody>
+    
+
+</table>
